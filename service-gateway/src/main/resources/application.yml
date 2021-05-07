@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: nacos-consumer
+          uri: http://127.0.0.1:7070
+          redicates:
+            - Path=/hi
+        - id: nacos-provider
+          uri: http://127.0.0.1:9090
+          predicates:
+            - Path=/hello
