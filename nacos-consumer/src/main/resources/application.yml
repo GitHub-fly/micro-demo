@@ -7,7 +7,18 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      # 指定 dashboard 地址
+      transport:
+        dashboard: localhost:8080
+        # 启动该服务，会在应用程序的相应服务器上启动 HTTP Server，并且该服务器将于 Sentinel dashboard 进行交互
+        port:
+          8719
+# 开启 sentinel 监控功能
+feign:
+  sentinel:
+    enabled: true
 
 myName:
   nacos-consumer
