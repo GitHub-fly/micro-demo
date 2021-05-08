@@ -20,7 +20,6 @@ public class ProviderController {
 
     @GetMapping("/hello")
     public String hello() {
-        int a = 3 / 0;
         return "hello " + name;
     }
 }
